@@ -1,0 +1,32 @@
+{
+  "name": "brewhouse",
+  "version": "0.0.1",
+  "description": "A complete brewery management tool.",
+  "main": "brewhouse.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clinch/brewhouse.git"
+  },
+  "keywords": [
+    "brewery",
+    "beer",
+    "raspberrypi",
+    "electric",
+    "brewing",
+    "homebrew",
+    "homebrewing",
+    "beaglebone",
+    "automated",
+    "pid",
+    "controller"
+  ],
+  "author": "Chris Inch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clinch/brewhouse/issues"
+  },
+  "homepage": "https://github.com/clinch/brewhouse"
+}

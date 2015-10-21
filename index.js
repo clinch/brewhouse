@@ -1,7 +1,7 @@
 'use strict';
 
-let Brewhouse = require('./app/Brewhouse.js');
+let Server = require('./app/Server.js');
 
-let brewhouse = new Brewhouse();
+let server = new Server();
 
-brewhouse.init();
+server.init();

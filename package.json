@@ -2,8 +2,9 @@
   "name": "brewhouse",
   "version": "0.0.1",
   "description": "A complete brewery management tool.",
-  "main": "brewhouse.js",
+  "main": "app/brewhouse.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/clinch/brewhouse/issues"
   },
-  "homepage": "https://github.com/clinch/brewhouse"
+  "homepage": "https://github.com/clinch/brewhouse",
+  "dependencies": {
+    "debug": "^2.2.0"
+  }
 }

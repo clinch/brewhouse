@@ -8,4 +8,10 @@ A complete brewery management tool.
 npm install brewhouse
 ```
 
+# Getting Started
 
+Simply run the following command to start the server. (Yes, it's that easy.)
+
+```
+npm start
+```

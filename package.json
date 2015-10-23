@@ -2,9 +2,10 @@
   "name": "brewhouse",
   "version": "0.0.1",
   "description": "A complete brewery management tool.",
-  "main": "brewhouse.js",
+  "main": "app/Server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "mocha --recursive test"
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,14 @@
   "bugs": {
     "url": "https://github.com/clinch/brewhouse/issues"
   },
-  "homepage": "https://github.com/clinch/brewhouse"
+  "homepage": "https://github.com/clinch/brewhouse",
+  "dependencies": {
+    "body-parser": "^1.0.1",
+    "debug": "^2.2.0",
+    "express": "^4.0.0",
+    "nconf": "^0.8.2"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
 }

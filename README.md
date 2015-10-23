@@ -1,5 +1,7 @@
 ![Brewhouse Logo](https://clinch.github.io/brewhouse/brewhouse.png "Brewhouse")
 
+[![Build Status](https://travis-ci.org/clinch/brewhouse.svg)](https://travis-ci.org/clinch/brewhouse)
+
 A complete brewery management tool.
 
 # Installation

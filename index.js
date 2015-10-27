@@ -1,6 +1,6 @@
 'use strict';
 
-let Server = require('./app/Server.js');
+let Server = require('./server/Server.js');
 
 let server = new Server();
 

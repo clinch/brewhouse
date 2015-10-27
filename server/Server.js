@@ -5,7 +5,7 @@ let bodyParser = require('body-parser');
 let fs = require('fs');
 let nconf = require('nconf');
 
-let constants = require('./constants');
+let constants = require('../app/constants');
 
 let debug = require('debug')(`${constants.APP_NAME}:Server`);
 

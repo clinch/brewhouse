@@ -6,6 +6,11 @@ let InputComponent = require('./InputComponent');
 let Sensor = require('ds18x20');
 
 class TemperatureProbe extends InputComponent {
+  /**
+   * Creates new temperature probe input
+   * @param  {String} probeAddress The unique identifier for this probe
+   * @param  {String} name         A human-readable name for this probe
+   */
   constructor(probeAddress, name) {
     super();
 
@@ -54,6 +59,13 @@ class TemperatureProbe extends InputComponent {
       }
     }
 
+    this.reportTemperature();
+  }
+
+  /**
+   * Emits the current temperature to any listeners
+   */
+  reportTemperature() {
     debug(this.toString());
 
     this.emit('data', this._temperature);

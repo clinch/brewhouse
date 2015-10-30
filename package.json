@@ -5,7 +5,9 @@
   "main": "app/Server.js",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha --recursive test"
+    "checkStyle": "./node_modules/.bin/jscs .",
+    "pretest": "npm run-script checkStyle",
+    "test": "./node_modules/.bin/mocha --recursive test"
   },
   "repository": {
     "type": "git",
@@ -38,6 +40,7 @@
     "nconf": "^0.8.2"
   },
   "devDependencies": {
+    "jscs": "^2.5.0",
     "mocha": "*"
   }
 }

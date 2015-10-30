@@ -1,13 +1,11 @@
 'use strict';
 
 let constants = require('../constants');
-let debug = require('debug')(`${constants.APP_NAME}:TemperatureProbe`)
+let debug = require('debug')(`${constants.APP_NAME}:TemperatureProbe`);
 let InputComponent = require('./InputComponent');
 let Sensor = require('ds18x20');
 
-
 class TemperatureProbe extends InputComponent {
-  
   constructor(probeAddress, name) {
     super();
 
@@ -17,11 +15,11 @@ class TemperatureProbe extends InputComponent {
     this._name = name;
     this._temperature = -274;
   }
-  
+
   toString() {
-    return `${this._name} (${this.address}) : ${this._temperature}`;  
+    return `${this._name} (${this.address}) : ${this._temperature}`;
   }
-  
+
   /**
    * Begins taking temperature readings and firing events when it receives data.
    */
@@ -29,6 +27,7 @@ class TemperatureProbe extends InputComponent {
     if (this._timer != undefined) {
       clearInterval(this._timer);
     }
+
     this._timer = setInterval(this.tick.bind(this), constants.TICK_INTERVAL);
   }
 
@@ -39,6 +38,7 @@ class TemperatureProbe extends InputComponent {
     if (this._timer != undefined) {
       clearInterval(this._timer);
     }
+
     this._timer = undefined;
   }
 
@@ -53,30 +53,33 @@ class TemperatureProbe extends InputComponent {
         console.log(Error(err));
       }
     }
+
     debug(this.toString());
 
     this.emit('data', this._temperature);
   }
-  
+
   /**
    * A static method that will return true if the temperature probe driver is
-   * loaded. 
+   * loaded.
+
    * There's no need to check this for each probe. Only check it once.
-   * 
+   *
+
    * @return {Boolean}  Returns true if the temperature probe driver is ready.
    */
   static isDriverLoaded() {
     let loaded = TemperatureProbe.IS_DRIVER_LOADED;
-    
+
     // If we know it's loaded, we don't need to ask again.
     if (!loaded) {
       loaded = Sensor.isDriverLoaded();
       TemperatureProbe.IS_DRIVER_LOADED = loaded;
     }
-    
+
     return loaded;
   }
-  
+
 }
 
 // A static variable to keep track of whether it's loaded or not.

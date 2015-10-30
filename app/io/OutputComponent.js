@@ -4,11 +4,11 @@ let IOComponent = require('./IOComponent');
 
 class OutputComponent extends IOComponent {
 
-	constructor() {
-		super();
+  constructor() {
+    super();
 
-		this._type = 'OutputComponent';
-	}
+    this._type = 'OutputComponent';
+  }
 
 }
 

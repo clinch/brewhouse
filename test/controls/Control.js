@@ -7,28 +7,28 @@ let InputComponent = require('../../app/io/InputComponent');
 let OutputComponent = require('../../app/io/OutputComponent');
 
 describe('Control', function() {
- 	let control = new Control();
+  let control = new Control();
 
-  describe('type', function () {
-    it('should be set to Control', function () {
+  describe('type', function() {
+    it('should be set to Control', function() {
       assert.equal('Control', control.type);
     });
   });
 
   describe('addInput()', function() {
-  	let input = new InputComponent();
+    let input = new InputComponent();
 
-  	it('should increase the input count by 1', function() {
-  		let inputCount = control.inputs.length;
-  		control.addInput(input);
-  		assert.equal(inputCount + 1, control.inputs.length);
-  	});
+    it('should increase the input count by 1', function() {
+      let inputCount = control.inputs.length;
+      control.addInput(input);
+      assert.equal(inputCount + 1, control.inputs.length);
+    });
 
-  	it('should return the ID of the input to retrieve it later', function() {
-  		let input2 = new InputComponent();
-  		let id = control.addInput(input2);
-  		assert.strictEqual(control.inputs[id], input2);
-  	});
+    it('should return the ID of the input to retrieve it later', function() {
+      let input2 = new InputComponent();
+      let id = control.addInput(input2);
+      assert.strictEqual(control.inputs[id], input2);
+    });
   });
 
   describe('addOutput()', function() {

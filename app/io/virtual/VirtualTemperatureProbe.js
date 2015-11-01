@@ -31,7 +31,7 @@ class VirtualTemperatureProbe extends TemperatureProbe {
    */
   createWriteStream() {
 
-  }  
+  }
 }
 
 module.exports = VirtualTemperatureProbe;

@@ -25,6 +25,17 @@ class TemperatureProbe extends InputComponent {
     return `${this._name} (${this.address}) : ${this._temperature}`;
   }
 
+  get temperature() {
+    return this._temperature;
+  }
+
+  /**
+   * This setter may be implemented in virtual temperature probes.
+   */
+  set temperature(newTemp) {
+    throw new Error(`${this._type} contains read-only temperatures. You cannot set it manually`);
+  }
+
   /**
    * Begins taking temperature readings and firing events when it receives data.
    */

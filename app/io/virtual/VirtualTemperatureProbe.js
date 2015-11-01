@@ -3,8 +3,7 @@
 let TemperatureProbe = require('../TemperatureProbe');
 
 /**
- * A virtual temperature probe includes a writable stream to be able to input
- * temperature changes to this probe.
+ * A virtual temperature probe includes will have it's address set manually.
  */
 class VirtualTemperatureProbe extends TemperatureProbe {
 
@@ -17,21 +16,27 @@ class VirtualTemperatureProbe extends TemperatureProbe {
   }
 
   /**
-   * At every interval, this method is called which can log data.
+   * This getter is also required because we are overriding the setter (below)
    */
-  tick() {
-    this._temperature = 54;
-    
-    this.reportTemperature();
+  get temperature() {
+    return this._temperature;
   }
 
   /**
-   * Writable stream will be used to input temperatures
-   * @return {Stream} A writable stream of temperature changes.
+   * Sets a new temperature on this virtual temperature probe
+   * @param  {Number} newTemp The new temperature in Celsius
    */
-  createWriteStream() {
-
+  set temperature(newTemp) {
+    this._temperature = newTemp;
   }
+
+  /**
+   * At every interval, this method is called which can log data.
+   */
+  tick() {
+    this.reportTemperature();
+  }
+
 }
 
 module.exports = VirtualTemperatureProbe;

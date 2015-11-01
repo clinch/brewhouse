@@ -18,4 +18,14 @@ describe('VirtualTemperatureProbe', function() {
     it('should always return true');
   });
 
+  describe('set temperature()', function() {
+    it('should set the temperature to a value', function() {
+      let temps = [-10, 0, 10, 100];
+      temps.forEach((temp) => {
+        virtualProbe.temperature = temp;
+        assert.equal(temp, virtualProbe.temperature);
+      });
+    });
+  });
+
 });

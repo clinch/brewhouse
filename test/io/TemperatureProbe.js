@@ -60,4 +60,16 @@ describe('TemperatureProbe', function() {
     });
   });
 
+  describe('get temperature()', function() {
+    it('should return a default value of -274', function() {
+      assert.strictEqual(-274, ioComp.temperature);
+    });
+  });
+
+  describe('set temperature()', function() {
+    it('should not allow setting of temperature manually', function() {
+      assert.throws(() => ioComp.temperature = 0, Error);
+    });
+  });
+
 });

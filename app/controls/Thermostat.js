@@ -1,6 +1,7 @@
 'use strict';
 
 let Control = require('./Control');
+let constants = require('../constants');
 
 /**
  * Thermostat is a basic output control which accepts a temperature. When
@@ -10,21 +11,21 @@ let Control = require('./Control');
 class Thermostat extends Control {
 
   /**
-   * Constructor accepts an input which will control the output
-   * @param  {InputComponent} input  A temperature probe
+   * Constructor accepts a temperature probe which will control the output
+   * @param  {TemperatureProbe} temperatureProbe  A temperature probe
    * @param  {OutputComponent} output A heat source
    */
-  constructor(input, output) {
+  constructor(temperatureProbe, output) {
     super();
 
     this._type = 'Thermostat';
-    this._input = input;
+    this._temperatureProbe = temperatureProbe;
     this._output = output;
 
-    this.addInput(input);
+    this.addInput(temperatureProbe);
     this.addOutput(output);
 
-    this._targetTemp = 0;
+    this._targetTemperature = constants.ABSOLUTE_ZERO;
 
     this._active = false;
   }
@@ -35,7 +36,7 @@ class Thermostat extends Control {
    * until the temperature reading falls below the target.
    */
   setTargetTemperature(target) {
-    this._targetTemp = target;
+    this._targetTemperature = target;
 
     this._active = true;
   }

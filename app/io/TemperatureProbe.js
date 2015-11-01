@@ -18,7 +18,7 @@ class TemperatureProbe extends InputComponent {
 
     this._address = probeAddress;
     this._name = name;
-    this._temperature = -274;
+    this._temperature = constants.ABSOLUTE_ZERO;
   }
 
   toString() {

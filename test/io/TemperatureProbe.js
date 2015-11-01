@@ -62,7 +62,7 @@ describe('TemperatureProbe', function() {
 
   describe('get temperature()', function() {
     it('should return a default value of -274', function() {
-      assert.strictEqual(-274, ioComp.temperature);
+      assert.strictEqual(constants.ABSOLUTE_ZERO, ioComp.temperature);
     });
   });
 

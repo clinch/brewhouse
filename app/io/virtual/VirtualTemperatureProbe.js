@@ -2,6 +2,10 @@
 
 let TemperatureProbe = require('../TemperatureProbe');
 
+/**
+ * A virtual temperature probe includes a writable stream to be able to input
+ * temperature changes to this probe.
+ */
 class VirtualTemperatureProbe extends TemperatureProbe {
 
   /**
@@ -20,6 +24,14 @@ class VirtualTemperatureProbe extends TemperatureProbe {
     
     this.reportTemperature();
   }
+
+  /**
+   * Writable stream will be used to input temperatures
+   * @return {Stream} A writable stream of temperature changes.
+   */
+  createWriteStream() {
+
+  }  
 }
 
 module.exports = VirtualTemperatureProbe;

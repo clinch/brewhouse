@@ -8,7 +8,7 @@ let constants = require('../constants');
  * the input device has a temperature lower than the target temperature, it
  * will activate the output (100%)
  */
-class Thermostat extends Control {
+class Hysteresis extends Control {
 
   /**
    * Constructor accepts a temperature probe which will control the output
@@ -18,7 +18,7 @@ class Thermostat extends Control {
   constructor(temperatureProbe, output) {
     super();
 
-    this._type = 'Thermostat';
+    this._type = 'Hysteresis';
     this._temperatureProbe = temperatureProbe;
     this._output = output;
 
@@ -26,6 +26,7 @@ class Thermostat extends Control {
     this.addOutput(output);
 
     this._targetTemperature = constants.ABSOLUTE_ZERO;
+    this._delta = 0;
 
     this._active = false;
   }
@@ -35,11 +36,12 @@ class Thermostat extends Control {
    * reads below this temperature, the output will be turned on and remain on
    * until the temperature reading falls below the target.
    */
-  setTargetTemperature(target) {
+  setTargetTemperature(target, hysteresisDelta) {
     this._targetTemperature = target;
+    this._delta = hysteresisDelta;
 
     this._active = true;
   }
 }
 
-module.exports = Thermostat;
+module.exports = Hysteresis;

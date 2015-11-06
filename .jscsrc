@@ -1,4 +1,5 @@
 {
     "preset": "airbnb",
-    "disallowTrailingWhitespace": "ignoreEmptyLines"
+    "disallowTrailingWhitespace": "ignoreEmptyLines",
+    "excludeFiles": [".c9"]
 }

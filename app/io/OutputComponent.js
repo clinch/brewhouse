@@ -2,8 +2,6 @@
 
 let IOComponent = require('./IOComponent');
 
-//let Gpio = require('onoff').Gpio;
-
 class OutputComponent extends IOComponent {
 
   /**
@@ -26,7 +24,6 @@ class OutputComponent extends IOComponent {
       throw new Error('GPIO pin number must be set before we can initialize.');
     }
 
-    //    this._pin = new Gpio(this._gpioNumber, 'out');
   }
 
   /**

@@ -15,7 +15,9 @@ describe('VirtualTemperatureProbe', function() {
   });
 
   describe('isDriverLoaded()', function() {
-    it('should always return true');
+    it('should always return true', function() {
+      assert(virtualProbe.isDriverLoaded());
+    });
   });
 
   describe('set temperature()', function() {

@@ -56,7 +56,7 @@ describe('TemperatureProbe', function() {
 
   describe('isDriverLoaded()', function() {
     it('should return a boolean value (true or false)', function() {
-      assert.equal(typeof TemperatureProbe.isDriverLoaded(), 'boolean');
+      assert.equal(typeof ioComp.isDriverLoaded(), 'boolean');
     });
   });
 

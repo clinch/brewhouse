@@ -31,6 +31,14 @@ class VirtualTemperatureProbe extends TemperatureProbe {
   }
 
   /**
+   * A static method that will return true for virtual temperature probe
+   * @return {Boolean}  Returns true if the temperature probe driver is ready.
+   */
+  isDriverLoaded() {
+    return true;
+  }
+
+  /**
    * At every interval, this method is called which can log data.
    */
   tick() {

@@ -91,7 +91,7 @@ class TemperatureProbe extends InputComponent {
 
    * @return {Boolean}  Returns true if the temperature probe driver is ready.
    */
-  static isDriverLoaded() {
+  isDriverLoaded() {
     let loaded = TemperatureProbe.IS_DRIVER_LOADED;
 
     // If we know it's loaded, we don't need to ask again.

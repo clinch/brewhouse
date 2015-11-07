@@ -4,10 +4,12 @@ let OutputComponent = require('./OutputComponent');
 
 class OnOffComponent extends OutputComponent {
 
-  constructor() {
-    super();
+  constructor(gpioNumber) {
+    super(gpioNumber);
 
     this._type = 'OnOffComponent';
+
+    this.initPin();
   }
 
   /**

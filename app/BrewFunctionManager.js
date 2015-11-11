@@ -1,7 +1,8 @@
 'use strict';
 
-let constants = require('../constants');
+let constants = require('./constants');
 let debug = require('debug')(`${constants.APP_NAME}:BrewFunctionManager`);
+let slug = require('slug');
 
 class BrewFunctionManager {
   constructor() {
@@ -22,7 +23,12 @@ class BrewFunctionManager {
    * @return {Object}      The brew function, or null if it doesn't exist
    */
   static getBrewFunction(name) {
+    let path = __dirname + '/brewFunctions/' + slug(name, {lower: true}) + '.json';
 
+    // This is a **synchronous** and **cached** way of requesting the file.
+    let brewFunctionObj = require(path);
+
+    return brewFunctionObj;
   }
 
   /**

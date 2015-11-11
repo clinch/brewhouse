@@ -3,6 +3,7 @@
 let constants = require('./constants');
 let debug = require('debug')(`${constants.APP_NAME}:BrewFunctionManager`);
 let slug = require('slug');
+let fs = require('fs');
 
 class BrewFunctionManager {
   constructor() {
@@ -24,9 +25,17 @@ class BrewFunctionManager {
    */
   static getBrewFunction(name) {
     let path = __dirname + '/brewFunctions/' + slug(name, {lower: true}) + '.json';
+    let contents;
+    let brewFunctionObj;
 
-    // This is a **synchronous** and **cached** way of requesting the file.
-    let brewFunctionObj = require(path);
+    // This is a **synchronous** way of requesting the file contents
+    try {
+      contents = fs.readFileSync(path);
+    } catch (error) {
+      return null;
+    }
+
+    brewFunctionObj = JSON.parse(contents);
 
     return brewFunctionObj;
   }

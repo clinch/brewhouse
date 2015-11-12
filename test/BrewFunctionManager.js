@@ -10,7 +10,6 @@ describe('BrewFunctionManager', function() {
       let brewFunction = BrewFunctionManager.getBrewFunction('Virtual Kettle');
       assert.equal('Virtual Kettle', brewFunction.name);
     });
-
   });
 
 });

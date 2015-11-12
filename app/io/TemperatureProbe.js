@@ -8,15 +8,15 @@ let Sensor = require('ds18x20');
 class TemperatureProbe extends InputComponent {
   /**
    * Creates new temperature probe input
-   * @param  {String} probeAddress The unique identifier for this probe
    * @param  {String} name         A human-readable name for this probe
+   * @param  {Object} parameters   Any extra parameters that are needed.
    */
-  constructor(probeAddress, name) {
+  constructor(name, parameters) {
     super();
 
     this._type = 'TemperatureProbe';
 
-    this._address = probeAddress;
+    this._address = parameters.address;
     this._name = name;
     this._temperature = constants.ABSOLUTE_ZERO;
   }

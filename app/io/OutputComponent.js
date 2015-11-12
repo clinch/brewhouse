@@ -6,14 +6,15 @@ class OutputComponent extends IOComponent {
 
   /**
    * Constructor
-   * @param  {Number} gpioPin The pin number to access the GPIO.
+   * @param  {String} name The name of this output component
+   * @param {Object} parameters Any number of required parameters
    */
-  constructor(gpioNumber) {
+  constructor(name, parameters) {
     super();
 
     this._type = 'OutputComponent';
 
-    this._gpioNumber = gpioNumber;
+    this._gpioNumber = parameters.gpio;
   }
 
   /**

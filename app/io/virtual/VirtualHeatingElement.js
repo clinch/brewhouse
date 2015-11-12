@@ -10,10 +10,11 @@ class VirtualHeatingElement extends OnOffComponent {
 
   /**
    * Makes a new "virtual" heating element
+   * @param  {String} name The name of this output component
+   * @param {Object} parameters Any number of required parameters
    */
-  constructor() {
-    // 0 can be passed since we never need an actual GPIO pin
-    super(0);
+  constructor(name, parameters) {
+    super(name, parameters);
   }
 
   initPin() {

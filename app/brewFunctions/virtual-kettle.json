@@ -11,17 +11,20 @@
   },
   "inputs": [
     {
-      "type": "temperatureProbe",
-      "path": "virtual/VirtualTemperatureProbe",
-      "name": "Kettle",
-      "address": "virtual-temperature-probe"
+      "name": "Kettle Probe",
+      "type": "virtual/VirtualTemperatureProbe",
+      "parameters": {
+        "address": "virtual-temperature-probe"
+      }
     }
   ],
   "outputs": [
     {
-      "type": "heatingElement",
-      "path": "virtual/VirtualHeatingElement",
-      "gpio": "18"
+      "name": "Kettle Heater",
+      "type": "virtual/VirtualHeatingElement",
+      "parameters": {
+        "gpio": "0"
+      }
     }
   ]
 }

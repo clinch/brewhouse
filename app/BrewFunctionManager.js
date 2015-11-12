@@ -53,8 +53,16 @@ class BrewFunctionManager {
     
     control.setParameters(jsonObj.control.parameters);
 
-    jsonObj.inputs.forEach((input) => control.addInput(input));
-    jsonObj.outputs.forEach((output) => control.addOutput(output));
+    jsonObj.inputs.forEach((input) => {
+      let CustomInput = require('./io/' + input.type);
+      let newInput = new CustomInput(input.name, input.parameters);
+      control.addInput(newInput);
+    });
+    jsonObj.outputs.forEach((output) => {
+      let CustomOutput = require('./io/' + output.type);
+      let newOutput = new CustomOutput(output.name, output.parameters);
+      control.addOutput(newOutput);
+    });
 
     brewFunction = new BrewFunction(jsonObj.name, control);
 

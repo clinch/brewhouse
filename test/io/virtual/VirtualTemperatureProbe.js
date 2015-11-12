@@ -6,7 +6,7 @@ let VirtualTemperatureProbe = require('../../../app/io/virtual/VirtualTemperatur
 describe('VirtualTemperatureProbe', function() {
   let name = 'My Virtual Probe';
 
-  let virtualProbe = new VirtualTemperatureProbe(name);
+  let virtualProbe = new VirtualTemperatureProbe(name, {address: 'virtual-probe-test-address'});
 
   describe('constructor()', function() {
     it('should initialize name', function() {

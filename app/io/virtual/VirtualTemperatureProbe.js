@@ -11,8 +11,8 @@ class VirtualTemperatureProbe extends TemperatureProbe {
    * Makes a new "virtual" temperature probe
    * @param  {String} name A human readable identifier for this probe
    */
-  constructor(name) {
-    super('virtual-address', name);
+  constructor(name, parameters) {
+    super(name, parameters);
   }
 
   /**

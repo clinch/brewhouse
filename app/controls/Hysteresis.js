@@ -2,6 +2,7 @@
 
 let Control = require('./Control');
 let constants = require('../constants');
+let debug = require('debug')(`${constants.APP_NAME}:Hysteresis`);
 
 /**
  * Thermostat is a basic output control which accepts a temperature. When
@@ -12,18 +13,11 @@ class Hysteresis extends Control {
 
   /**
    * Constructor accepts a temperature probe which will control the output
-   * @param  {TemperatureProbe} temperatureProbe  A temperature probe
-   * @param  {OutputComponent} output A heat source
    */
-  constructor(temperatureProbe, output) {
+  constructor() {
     super();
 
     this._type = 'Hysteresis';
-    this._temperatureProbe = temperatureProbe;
-    this._output = output;
-
-    this.addInput(temperatureProbe);
-    this.addOutput(output);
 
     this._targetTemperature = constants.ABSOLUTE_ZERO;
     this._delta = 0;
@@ -36,11 +30,35 @@ class Hysteresis extends Control {
    * reads below this temperature, the output will be turned on and remain on
    * until the temperature reading falls below the target.
    */
-  setTargetTemperature(target, hysteresisDelta) {
-    this._targetTemperature = target;
-    this._delta = hysteresisDelta;
+  setParameters(paramObject) {
+    this._targetTemperature = paramObject.target;
+    this._delta = paramObject.delta;
+
+    debug('Set params to %d and %d', this._targetTemperature, this._delta);
 
     this._active = true;
+  }
+
+  /**
+   * Adds an input device to be controlled.
+   * @param  {TemperatureProbe} temperatureProbe  A temperature probe
+   * @return {int} An ID referring to the input.
+   */
+  addInput(input) {
+    super.addInput(input);
+
+    this._temperatureProbe = input;
+  }
+
+  /**
+   * Adds an output device to be controlled
+   * @param  {OutputComponent} output A heat source
+   * @return {int} An ID referring to the output.
+   */
+  addOutput(output) {
+    super.addOutput(output);
+
+    this._output = output;
   }
 }
 

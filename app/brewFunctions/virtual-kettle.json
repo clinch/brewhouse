@@ -23,8 +23,5 @@
       "path": "virtual/VirtualHeatingElement",
       "gpio": "18"
     }
-  ],
-  "shutoff": {
-    "type": "manual"
-  }
+  ]
 }

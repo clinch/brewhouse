@@ -4,6 +4,7 @@ let constants = require('./constants');
 let debug = require('debug')(`${constants.APP_NAME}:BrewFunctionManager`);
 let slug = require('slug');
 let fs = require('fs');
+let BrewFunction = require('./BrewFunction');
 
 class BrewFunctionManager {
   constructor() {
@@ -21,23 +22,43 @@ class BrewFunctionManager {
   /**
    * Retrieves a specific brew function by name
    * @param  {String} name The name (case-sensitive) of the brew function
-   * @return {Object}      The brew function, or null if it doesn't exist
+   * @return {Object}      The BrewFunction, or null if it doesn't exist
    */
   static getBrewFunction(name) {
     let path = __dirname + '/brewFunctions/' + slug(name, {lower: true}) + '.json';
     let contents;
-    let brewFunctionObj;
+    let jsonObj;
+    let brewFunction;
+    let control;
 
     // This is a **synchronous** way of requesting the file contents
     try {
       contents = fs.readFileSync(path);
     } catch (error) {
-      return null;
+      throw new Error('Cannot load brew function path.');
     }
 
-    brewFunctionObj = JSON.parse(contents);
+    jsonObj = JSON.parse(contents);
 
-    return brewFunctionObj;
+    // Every brew function file contains a "version" parameter. We can perform
+    // additional functionality for future versions based off this.
+
+    // Load the control dynamically from a JSON file.
+    try {
+      let CustomFunction = require('./controls/' + jsonObj.control.type);
+      control = new CustomFunction();
+    } catch (error) {
+      throw new Error('Unable to load control dynamically.');
+    }
+    
+    control.setParameters(jsonObj.control.parameters);
+
+    jsonObj.inputs.forEach((input) => control.addInput(input));
+    jsonObj.outputs.forEach((output) => control.addOutput(output));
+
+    brewFunction = new BrewFunction(jsonObj.name, control);
+
+    return brewFunction;
   }
 
   /**

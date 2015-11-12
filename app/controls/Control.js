@@ -25,6 +25,13 @@ class Control extends EventEmitter {
   }
 
   /**
+   * Sets parameters that are specific to this Control.
+   */
+  setParameters(paramObject) {
+    
+  }
+
+  /**
    * Adds an input device to be controlled.
    * @param {InputComponent} input An input component
    * @return {int} An ID referring to the input.

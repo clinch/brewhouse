@@ -48,6 +48,7 @@ class Hysteresis extends Control {
     super.addInput(input);
 
     this._temperatureProbe = input;
+    debug('Temp probe added %s', this._temperatureProbe.address);
   }
 
   /**
@@ -59,6 +60,7 @@ class Hysteresis extends Control {
     super.addOutput(output);
 
     this._output = output;
+    debug('Temp output %s', this._output.gpio);
   }
 }
 

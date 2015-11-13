@@ -21,8 +21,6 @@ class Hysteresis extends Control {
 
     this._targetTemperature = constants.ABSOLUTE_ZERO;
     this._delta = 0;
-
-    this._active = false;
   }
 
   /**
@@ -36,7 +34,6 @@ class Hysteresis extends Control {
 
     debug('Set params to %d and %d', this._targetTemperature, this._delta);
 
-    this._active = true;
   }
 
   /**
@@ -61,6 +58,26 @@ class Hysteresis extends Control {
 
     this._output = output;
     debug('Temp output %s', this._output.gpio);
+  }
+
+  /**
+   * Starts listening for temperature updates.
+   */
+  start() {
+    super.start();
+
+    debug('Hysteresis is starting.');
+
+    this._temperatureProbe.on('data', this.checkTemperature);
+  }
+
+  /**
+   * Temperatures are fed by the temperature probe, and we compare temperature
+   * to our target temperature.
+   * @param  {Number} temperature The temperature of the probe, in Celsius
+   */
+  checkTemperature(temperature) {
+    debug('Got temperature reading of %d', temperature);
   }
 }
 

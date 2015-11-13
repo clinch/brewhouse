@@ -10,6 +10,8 @@ class Control extends EventEmitter {
     this._type = 'Control';
     this._inputs = [];
     this._outputs = [];
+
+    this._active = false;
   }
 
   get type() {
@@ -53,6 +55,12 @@ class Control extends EventEmitter {
     return this._outputs.length - 1;
   }
 
+  /**
+   * Starts this control.
+   */
+  start() {
+    this._active = true;
+  }
 }
 
 module.exports = Control;

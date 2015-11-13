@@ -3,12 +3,17 @@
 let assert = require('assert');
 
 let BrewFunctionManager = require('../app/BrewFunctionManager');
+let brewFunction;
 
 describe('BrewFunctionManager', function() {
   describe('getBrewFunction()', function() {
     it('be able to retrieve the virtual kettle by name', function() {
-      let brewFunction = BrewFunctionManager.getBrewFunction('Virtual Kettle');
+      brewFunction = BrewFunctionManager.getBrewFunction('Virtual Kettle');
       assert.equal('Virtual Kettle', brewFunction.name);
+    });
+
+    it('should start the brew function', function() {
+      brewFunction.start();
     });
   });
 

@@ -26,6 +26,13 @@ class BrewFunction {
     return this._description;
   }
 
+  /**
+   * Starts the brew function by starting the control
+   * @return {[type]} [description]
+   */
+  start() {
+    this._control.start();
+  }
 }
 
 module.exports = BrewFunction;

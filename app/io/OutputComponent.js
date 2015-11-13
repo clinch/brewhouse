@@ -4,28 +4,38 @@ let IOComponent = require('./IOComponent');
 
 class OutputComponent extends IOComponent {
 
-	constructor() {
-		super();
+  /**
+   * Constructor
+   * @param  {String} name The name of this output component
+   * @param {Object} parameters Any number of required parameters
+   */
+  constructor(name, parameters) {
+    super();
 
-		this._type = 'OutputComponent';
-		this._inputs = [];
-	}
+    this._type = 'OutputComponent';
 
-	get inputs() {
-		return this._inputs;
-	}
+    this._gpioNumber = parameters.gpio;
+  }
 
-	/**
-	 * Output devices usually (but not always) depend on inputs. Add one or more
-	 * input devices to this output using this method.
-	 * @param {InputComponent} input An input component
-	 * @return {int} An ID referring to the input.
-	 */
-	addInput(input) {
-		this._inputs.push(input);
+  /**
+   * Sets up our GPIO pin for writing.
+   */
+  initPin() {
+    if (this._gpioNumber == undefined) {
+      throw new Error('GPIO pin number must be set before we can initialize.');
+    }
 
-		return this._inputs.length - 1;
-	}
+  }
+
+  /**
+   * When the application exits, we need to clean up the pins that we were working with.
+   */
+  cleanup() {
+    if (this._pin != undefined) {
+      this._pin.unexport();
+    }
+  }
+
 }
 
 module.exports = OutputComponent;

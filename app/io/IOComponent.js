@@ -4,16 +4,15 @@ let EventEmitter = require('events').EventEmitter;
 
 class IOComponent extends EventEmitter {
 
-	constructor() {
-		super();
+  constructor() {
+    super();
 
-		this._type = 'IOComponent';
-	}
+    this._type = 'IOComponent';
+  }
 
-	get type() {
-		return this._type;
-	}
-
+  get type() {
+    return this._type;
+  }
 
 }
 

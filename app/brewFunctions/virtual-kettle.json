@@ -1,0 +1,30 @@
+{
+  "version": 0,
+  "name": "Virtual Kettle",
+  "description": "A kettle using virtual heater and temperature probe. Can be used for testing or demo purposes.",
+  "control": {
+    "type": "Hysteresis",
+    "parameters": {
+      "target": 75,
+      "delta": 5
+    }
+  },
+  "inputs": [
+    {
+      "name": "Kettle Probe",
+      "type": "virtual/VirtualTemperatureProbe",
+      "parameters": {
+        "address": "virtual-temperature-probe"
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "name": "Kettle Heater",
+      "type": "virtual/VirtualHeatingElement",
+      "parameters": {
+        "gpio": "0"
+      }
+    }
+  ]
+}

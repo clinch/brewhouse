@@ -1,0 +1,29 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3
+{
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.brew-function .panel-heading {
+	font-weight: 400;
+	font-size: 1.2em;
+}
+
+.temperature-chart-wide {
+	height: 250px;
+	width: 100%;
+}

@@ -41,18 +41,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Brewhouse</a>
+          <a class="navbar-brand text-uppercase" href="#"><span class="glyphicon glyphicon-grain"></span> Brewhouse</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
             <li><a href="#">Help</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
         </div>
       </div>
     </nav>
@@ -60,155 +56,93 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12 main">
-          <h1 class="page-header">Dashboard</h1>
+          <h1 class="page-header">Bill Wilson's Brewery</h1>
 
           <div class="row placeholders">
-            <div class="col-xs-12 col-sm-6 col-md-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
+            <div class="col-sm-6 col-md-3 placeholder">
+              <div class="panel panel-success brew-function">
+                <div class="panel-heading">
+                  <span class="glyphicon glyphicon-tint"></span>
+                  Hot Liquor Tank
+                </div>
+              <div class="panel-body">
+                <strong>Current</strong>: 154.8°F<br>
+                <strong>Control</strong>: PID<br>
+                <strong>Params</strong>: Target: 155°F
+              </div>
+              </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
+            <div class="col-sm-6 col-md-3 placeholder">
+              <div class="panel panel-success brew-function">
+                <div class="panel-heading">
+                  <span class="glyphicon glyphicon-cd"></span>
+                  Pump #1
+                </div>
+              <div class="panel-body">
+                <strong>Current</strong>: Active<br>
+                <strong>Control</strong>: On/Off<br>
+                <strong>Params</strong>: 
+              </div>
+              </div>            </div>
+            <div class="col-sm-6 col-md-3 placeholder">
+              <div class="panel panel-success brew-function">
+                <div class="panel-heading">
+                  <span class="glyphicon glyphicon-scale"></span>
+                  Keezer
+                </div>
+              <div class="panel-body">
+                <strong>Current</strong>: 4.7°C<br>
+                <strong>Control</strong>: Hysteresis<br>
+                <strong>Params</strong>: Target: 4.7°C
+              </div>
+              </div>            </div>
+            <div class="col-sm-6 col-md-3 placeholder">
+              <div class="panel panel-default brew-function">
+                <div class="panel-heading">
+                  <span class="glyphicon glyphicon-remove"></span>
+                  Boil Kettle
+                </div>
+              <div class="panel-body">
+                <strong>Current</strong>: N/A<br>
+                <strong>Control</strong>: Manual<br>
+                <strong>Params</strong>: N/A
+              </div>
+              </div>            </div>
           </div>
 
-          <h2 class="sub-header">Section title</h2>
+          <h2 class="sub-header">Keezer</h2>
+          <canvas class="temperature-chart-wide" id="myChart"></canvas>
+          
+          <h2 class="sub-header">Available Brew Functions</h2>
           <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
+                  <th>Activate</th>
+                  <th>Name</th>
+                  <th>Description</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
+                  <td><button type="button" class="btn btn-primary">Activate</button></td>
+                  <td>Fly Sparge</td>
+                  <td>Sparges mash with manual shut-off.</td>
                 </tr>
                 <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
+                  <td><button type="button" class="btn btn-primary">Activate</button></td>
+                  <td>Whirlpool</td>
+                  <td>Whirlpool pump activates and begins whirlpool.</td>
                 </tr>
                 <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
+                  <td><button type="button" class="btn btn-primary">Activate</button></td>
+                  <td>Transfer to Fermenter</td>
+                  <td>Activate Pump #2 to chill and transfer wort.</td>
                 </tr>
                 <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
+                  <td><button type="button" class="btn btn-warning">Off</button></td>
+                  <td>All off</td>
+                  <td>Turn all components off.</td>
                 </tr>
               </tbody>
             </table>
@@ -226,5 +160,37 @@
     <script src="js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- Chart.js -->
+    <script src="js/Chart.min.js"></script>
+    <script>
+    var data = {
+        labels: ["10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00"],
+        datasets: [
+            {
+                label: "Target Temperature",
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: [4.8, 4.8, 4.8, 4.8, 4.8, 4.8, 4.8]
+            },
+            {
+                label: "Actual Temperature",
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(151,187,205,1)",
+                data: [20, 12, 7, 5, 3.9, 5.4, 4.8]
+            }
+        ]
+    };
+    var ctx = document.getElementById("myChart").getContext("2d");
+    var myLineChart = new Chart(ctx).Line(data);
+    </script>
   </body>
 </html>

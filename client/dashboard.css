@@ -9,9 +9,21 @@ body {
 
 h1,
 h2,
+h3,
 .h1,
-.h2 {
+.h2,
+.h3
+{
   text-transform: uppercase;
   font-weight: 300;
 }
 
+.brew-function .panel-heading {
+	font-weight: 400;
+	font-size: 1.2em;
+}
+
+.temperature-chart-wide {
+	height: 250px;
+	width: 100%;
+}

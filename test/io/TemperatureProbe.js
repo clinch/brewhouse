@@ -8,7 +8,7 @@ describe('TemperatureProbe', function() {
   let name = 'Probe #1';
   let address = '28-000000000000';
 
-  let ioComp = new TemperatureProbe(name, {address: address});
+  let ioComp = new TemperatureProbe(name, { address: address });
 
   describe('type', function() {
     it('should be set to TemperatureProbe', function() {

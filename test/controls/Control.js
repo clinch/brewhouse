@@ -32,7 +32,7 @@ describe('Control', function() {
   });
 
   describe('addOutput()', function() {
-    let output = new OutputComponent('Test Output', {gpio: 0});
+    let output = new OutputComponent('Test Output', { gpio: 0 });
 
     it('should increase the output count by 1', function() {
       let outputCount = control.outputs.length;
@@ -41,7 +41,7 @@ describe('Control', function() {
     });
 
     it('should return the ID of the output to retrieve it later', function() {
-      let output2 = new OutputComponent('Test Output 2', {gpio: 0});
+      let output2 = new OutputComponent('Test Output 2', { gpio: 0 });
       let id = control.addOutput(output2);
       assert.strictEqual(control.outputs[id], output2);
     });

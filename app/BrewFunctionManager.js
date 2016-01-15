@@ -25,7 +25,7 @@ class BrewFunctionManager {
    * @return {Object}      The BrewFunction, or null if it doesn't exist
    */
   static getBrewFunction(name) {
-    let path = __dirname + '/brewFunctions/' + slug(name, {lower: true}) + '.json';
+    let path = __dirname + '/brewFunctions/' + slug(name, { lower: true }) + '.json';
     let contents;
     let jsonObj;
     let brewFunction;

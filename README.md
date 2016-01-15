@@ -1,6 +1,6 @@
 ![Brewhouse Logo](https://clinch.github.io/brewhouse/brewhouse.png "Brewhouse")
 
-[![Build Status](https://travis-ci.org/clinch/brewhouse.svg)](https://travis-ci.org/clinch/brewhouse)
+[![Build Status](https://travis-ci.org/clinch/brewhouse.svg)](https://travis-ci.org/clinch/brewhouse) [![bitHound Overall Score](https://www.bithound.io/github/clinch/brewhouse/badges/score.svg)](https://www.bithound.io/github/clinch/brewhouse)
 
 A complete brewery management tool.
 

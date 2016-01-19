@@ -27,11 +27,24 @@ class BrewFunction {
   }
 
   /**
+   * @return {Boolean} Returns true if our control is active. False otherwise
+   */
+  get active() {
+    return this._control.active;
+  }
+
+  /**
    * Starts the brew function by starting the control
-   * @return {[type]} [description]
    */
   start() {
     this._control.start();
+  }
+
+  /**
+   * Stops the brew function's control
+   */
+  stop() {
+    this._control.stop();
   }
 }
 

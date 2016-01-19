@@ -14,7 +14,12 @@ describe('BrewFunctionManager', function() {
 
     it('should start the brew function', function() {
       brewFunction.start();
+      assert(brewFunction.active);
     });
+  });
+
+  describe('getAllBrewFunctions', function() {
+    it('should return all available brew functions');
   });
 
 });

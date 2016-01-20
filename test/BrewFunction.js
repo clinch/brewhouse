@@ -10,7 +10,13 @@ describe('BrewFunction', function() {
 
   before(function() {
     brewFunction = BrewFunctionManager.getBrewFunction('Virtual Kettle');
-    assert.equal('Virtual Kettle', brewFunction.name);
+  });
+
+  describe('BrewFunction', function() {
+    it('should have default parameters set after constructor', function() {
+      assert.equal('Virtual Kettle', brewFunction.name);
+      assert.equal('Hysteresis', brewFunction.control.type);
+    });
   });
 
   describe('start()', function() {

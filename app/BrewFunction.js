@@ -26,6 +26,10 @@ class BrewFunction {
     return this._description;
   }
 
+  get control() {
+    return this._control;
+  }
+
   /**
    * @return {Boolean} Returns true if our control is active. False otherwise
    */

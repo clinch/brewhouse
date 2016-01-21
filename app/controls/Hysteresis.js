@@ -57,7 +57,7 @@ class Hysteresis extends Control {
     super.addOutput(output);
 
     this._output = output;
-    debug('Temp output %s', this._output.gpio);
+    debug('Temp output pin %s', this._output.gpioNumber);
   }
 
   /**
@@ -69,6 +69,17 @@ class Hysteresis extends Control {
     debug('Hysteresis is starting.');
 
     this._temperatureProbe.on('data', this.checkTemperature);
+  }
+
+  /**
+   * Stops listening for temperature updates.
+   */
+  stop() {
+    super.stop();
+
+    debug('Hysteresis is stopping.');
+
+    this._temperatureProbe.removeListener('data', this.checkTemperature);
   }
 
   /**

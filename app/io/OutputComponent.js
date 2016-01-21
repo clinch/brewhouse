@@ -17,6 +17,14 @@ class OutputComponent extends IOComponent {
     this._gpioNumber = parameters.gpio;
   }
 
+  get gpioNumber() {
+    return this._gpioNumber;
+  }
+
+  set gpioNumber(newPin) {
+    this._gpioNumber = newPin;
+  }
+
   /**
    * Sets up our GPIO pin for writing.
    */
@@ -31,9 +39,7 @@ class OutputComponent extends IOComponent {
    * When the application exits, we need to clean up the pins that we were working with.
    */
   cleanup() {
-    if (this._pin != undefined) {
-      this._pin.unexport();
-    }
+
   }
 
 }

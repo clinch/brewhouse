@@ -1,5 +1,14 @@
 {
     "preset": "airbnb",
     "disallowTrailingWhitespace": "ignoreEmptyLines",
+    "requireSpacesInFunctionExpression": {
+        "beforeOpeningCurlyBrace": true
+    },
+    "requireSpacesInNamedFunctionExpression": {
+        "beforeOpeningCurlyBrace": true
+    },
+    "requireSpacesInAnonymousFunctionExpression": {
+        "beforeOpeningCurlyBrace": true
+    },
     "excludeFiles": [".c9", "client/js/*"]
 }

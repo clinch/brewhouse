@@ -36,6 +36,14 @@ class TemperatureProbe extends InputComponent {
     throw new Error(`${this._type} contains read-only temperatures. You cannot set it manually`);
   }
 
+  get address() {
+    return this._address;
+  }
+
+  set address(newAddress) {
+    this._address = newAddress;
+  }
+
   /**
    * Begins taking temperature readings and firing events when it receives data.
    */

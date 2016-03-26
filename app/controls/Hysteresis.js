@@ -5,7 +5,7 @@ let constants = require('../constants');
 let debug = require('debug')(`${constants.APP_NAME}:Hysteresis`);
 
 /**
- * Thermostat is a basic output control which accepts a temperature. When
+ * Hysteresis is a basic output control which accepts a temperature. When
  * the input device has a temperature lower than the target temperature, it
  * will activate the output (100%)
  */
@@ -57,7 +57,7 @@ class Hysteresis extends Control {
     super.addOutput(output);
 
     this._output = output;
-    debug('Temp output %s', this._output.gpio);
+    debug('Temp output pin %s', this._output.gpioNumber);
   }
 
   /**
@@ -72,12 +72,31 @@ class Hysteresis extends Control {
   }
 
   /**
+   * Stops listening for temperature updates.
+   */
+  stop() {
+    super.stop();
+
+    debug('Hysteresis is stopping.');
+
+    this._temperatureProbe.removeListener('data', this.checkTemperature);
+  }
+
+  /**
    * Temperatures are fed by the temperature probe, and we compare temperature
    * to our target temperature.
    * @param  {Number} temperature The temperature of the probe, in Celsius
    */
   checkTemperature(temperature) {
-    debug('Got temperature reading of %d', temperature);
+    debug(`Got temperature reading of ${temperature}`);
+
+    if (this._output.isOff() && temperature < this._targetTemperature - this._delta) {
+      debug('Turning output on');
+      this._output.on();
+    } else if (this._output.isOn() && temperature >= this._targetTemperature) {
+      debug('Turning output off');
+      this._output.off();
+    }
   }
 }
 

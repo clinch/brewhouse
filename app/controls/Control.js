@@ -26,6 +26,10 @@ class Control extends EventEmitter {
     return this._outputs;
   }
 
+  get active() {
+    return this._active;
+  }
+
   /**
    * Sets parameters that are specific to this Control.
    */
@@ -60,6 +64,13 @@ class Control extends EventEmitter {
    */
   start() {
     this._active = true;
+  }
+
+  /**
+   * Stops this control.
+   */
+  stop() {
+    this._active = false;
   }
 }
 
